@@ -5,4 +5,4 @@
 4.Finally, it prints out the contents of each array .
 
 
-# Note :- The elements array is split across the arrays , with each array receiving every sixth element (starting from the first element in elements).
+Note :- The elements array is split across the arrays , with each array receiving every sixth element (starting from the first element in elements).
