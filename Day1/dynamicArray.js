@@ -1,4 +1,4 @@
-const numArrays = 6;
+const numArrays = 4;
 const arrays = [];
 
 for (let i = 0; i<numArrays; i++)
@@ -22,7 +22,9 @@ for (let i = 0; i< elements.length; i++){
 for(let i = 0; i<arrays.length;i++){
     console.log(`Array ${i+1}:${arrays[i]}`);
 
+
 }
+console.log(arrays)
 
 // output of the program
 // Array 1:a,1,8
