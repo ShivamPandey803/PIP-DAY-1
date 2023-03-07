@@ -13,9 +13,16 @@ class DynamicArray {
     getArrays() {
       return this.arrays;
     }
+    reset() {
+      for (let i = 0; i < this.arrays.length; i++) {
+        this.arrays[i] = [];
+      }
+      this.currentArrayIndex = 0;
+    }
   }
-  // Usage
+  // constructor usage with the Add element function.
   const dynamicArray = new DynamicArray(3);
+  dynamicArray.reset();
   dynamicArray.addElement('A');
   dynamicArray.addElement('B');
   dynamicArray.addElement('C');
@@ -23,5 +30,6 @@ class DynamicArray {
   dynamicArray.addElement('E');
   dynamicArray.addElement('F');
   dynamicArray.addElement('G');
+  
 
   console.log(dynamicArray.getArrays());
