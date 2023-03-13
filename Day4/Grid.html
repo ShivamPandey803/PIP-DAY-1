@@ -1,0 +1,46 @@
+<!DOCTYPE html><html>
+    <head>
+        <title>Flex Grid with Hover</title>
+        <style>
+    .container {
+        background: rgb(235, 244, 248);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
+    }
+    .box {
+        text-align: center;
+        flex-basis: calc(100% / 4);
+        height: calc(100% / 4);
+        border: 1px solid black;
+        transition: background-color 0.3s ease-in-out;
+    }
+    .box:hover {
+        background-color: lightgray;
+        cursor: pointer;
+    }
+    box:hover:nth-child(odd) {
+			background-color: lightblue;
+		}
+        .box:hover:nth-child(even) {
+			background-color: lightgreen;
+		}
+    </style>
+    </head>
+    <body><div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+    </div>
+</body>
+</html>
