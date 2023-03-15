@@ -10,8 +10,10 @@
       <todo-item
         v-for="(todo, index) in todos"
         :key="index"
+        :index="index"
         :todo="todo"
         @delete-todo="deleteTodo(index)"
+        @update-todo="updateTodo"
       ></todo-item>
     </div>
   </div>
@@ -32,8 +34,6 @@ export default {
   },
   methods: {
     addTodo() {
-      console.log(111)
-
       if (this.newTodoText.trim() !== '') {
         this.todos.push({
           text: this.newTodoText.trim(),
@@ -43,9 +43,10 @@ export default {
       }
     },
     deleteTodo(index) {
-      console.log(222)
-
       this.todos.splice(index, 1);
+    },
+    updateTodo({index, todo}) {
+      this.todos.splice(index, 1, todo);
     },
   },
 };
