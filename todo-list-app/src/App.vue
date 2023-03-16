@@ -8,12 +8,11 @@
     <div v-if="todos.length === 0">No todos yet!</div>
     <div v-else>
       <todo-item
-        v-for="(todo, index) in todos"
-        :key="index"
-        :index="index"
+        v-for="(todo) in todos"
+        :key="todo.id"
         :todo="todo"
-        @delete-todo="deleteTodo(index)"
-        @update-todo="updateTodo"
+        @delete-todo="deleteTodo(todo.id)"
+        @update-todo="updateTodo({id: todo.id, todo})"
       ></todo-item>
     </div>
   </div>
@@ -36,18 +35,41 @@ export default {
     addTodo() {
       if (this.newTodoText.trim() !== '') {
         this.todos.push({
+          id: Date.now(),
           text: this.newTodoText.trim(),
           completed: false,
         });
         this.newTodoText = '';
       }
     },
-    deleteTodo(index) {
-      this.todos.splice(index, 1);
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id);
     },
-    updateTodo({index, todo}) {
-      this.todos.splice(index, 1, todo);
+    updateTodo({ id, todo }) {
+      this.todos = this.todos.map(todoItem => {
+        if (todoItem.id === id) {
+          return { ...todoItem, ...todo };
+        }
+        return todoItem;
+      });
     },
   },
 };
 </script>
+<style>
+.todo-item input[type="checkbox"] {
+    margin-right: 1rem;
+  }
+  .todo-item input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 70%;
+  }
+  
+  .todo-item button {
+    margin-left: 1rem;
+  }
+</style>
+
