@@ -2,7 +2,8 @@
   <div>
     <h1>Todo List</h1>
     <form @submit.prevent="addTodo">
-      <input type="text" v-model="newTodoText">
+      <input type="text" v-model="newTodoText" placeholder="Enter a todo">
+      <input type="text" v-model="newTodoDesc" placeholder="Enter a description">
       <button>Add Todo</button>
     </form>
     <div v-if="todos.length === 0">No todos yet!</div>
@@ -28,6 +29,7 @@ export default {
   data() {
     return {
       newTodoText: '',
+      newTodoDesc: '',
       todos: [],
     };
   },
@@ -37,9 +39,11 @@ export default {
         this.todos.push({
           id: Date.now(),
           text: this.newTodoText.trim(),
+          description: this.newTodoDesc.trim(),
           completed: false,
         });
         this.newTodoText = '';
+        this.newTodoDesc = '';
       }
     },
     deleteTodo(id) {
@@ -56,20 +60,3 @@ export default {
   },
 };
 </script>
-<style>
-.todo-item input[type="checkbox"] {
-    margin-right: 1rem;
-  }
-  .todo-item input[type="text"] {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    width: 70%;
-  }
-  
-  .todo-item button {
-    margin-left: 1rem;
-  }
-</style>
-

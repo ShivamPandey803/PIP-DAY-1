@@ -1,14 +1,17 @@
+
 <template>
   <div>
     <div v-if="!isEditing">
-      <input type="checkbox" v-model="completed" @change="$emit('update-todo', {id, todo: {text, completed}})">
+      <input type="checkbox" v-model="completed" @change="$emit('update-todo', {id, todo: {text, description, completed}})">
       <span :class="{ completed: completed }">{{ text }}</span>
+      <span v-if="description">- {{ description }}</span>
       <button @click="$emit('delete-todo', id)">X</button>
       <button @click="isEditing = true">Edit</button>
     </div>
     <div v-else>
       <input type="text" v-model="text">
-      <button @click="isEditing = false; $emit('update-todo', {id, todo: {text, completed}})">Save</button>
+      <input type="text" v-model="description">
+      <button @click="isEditing = false; $emit('update-todo', {id, todo: {text, description, completed}})">Save</button>
     </div>
   </div>
 </template>
@@ -23,13 +26,12 @@ export default {
     return {
       completed: this.todo.completed,
       text: this.todo.text,
+      description: this.todo.description,
       isEditing: false,
     };
   },
 };
 </script>
-
-
 <style>
 h1 {
     font-size: 2.5rem;
@@ -96,5 +98,14 @@ h1 {
   .completed {
     text-decoration: line-through;
   }
-
+  .description {
+  font-size: 0.8rem;
+  color: gray;
+  margin-top: 0.5rem;
+}
 </style>
+
+
+
+
+
