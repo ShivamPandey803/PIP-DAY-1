@@ -21,7 +21,6 @@
 
 <script>
 import TodoItem from './components/TodoItem.vue';
-
 export default {
   components: {
     TodoItem,
@@ -63,25 +62,21 @@ export default {
 
 <style>
 .app {
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 100;
+  margin: auto;
 }
-
 .title {
   background-color: #f44336;
   padding: 30px 40px;
   color: white;
   text-align: center;
-
 }
-
 .form {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
-
 .input-text {
   flex-grow: 1;
   padding: 0.5rem;
@@ -90,7 +85,6 @@ export default {
   font-size: 1rem;
   margin-right: 0.5rem;
 }
-
 .btn-add {
   padding: 2px;
     margin: 0;
@@ -104,12 +98,34 @@ export default {
     border: none;
     cursor: pointer;
 }
-
 .no-todos {
   text-align: center;
   font-size: 1rem;
   color: gray;
   margin-top: 1rem;
 }
-</style>
 
+/* For small screens */
+@media only screen and (max-width: 600px) {
+  .app {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .form {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .input-text {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-add {
+    max-width: 100%;
+  }
+}
+
+</style>

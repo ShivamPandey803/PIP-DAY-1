@@ -33,9 +33,9 @@ export default {
 </script>
 <style>
 * {
+  box-shadow: 0 0 0px 0px rgb(157 253 209 / 43%);
   box-sizing: border-box;
 }
-
 .todo-item {
   cursor: pointer;
   position: relative;
@@ -51,11 +51,9 @@ export default {
 .todo-item:hover {
   background: #ddd;
 }
-
 .checkbox {
   margin-right: 0.5rem;
 }
-
 .text {
   flex-grow: 1;
   font-size: 1.5rem;
@@ -65,7 +63,6 @@ export default {
   color: #fff;
   text-decoration: line-through;
 }
-
 .description {
   font-size: 1rem;
   color: gray;
@@ -83,7 +80,6 @@ export default {
   color: white;
 }
 .btn-edit{
-
   cursor: pointer;
     border-radius: 5px;
     border: none;
@@ -100,7 +96,6 @@ export default {
 .btn-save:hover{
   background-color: #79f704;
   color: white;
-
 }
-
 </style>
+
