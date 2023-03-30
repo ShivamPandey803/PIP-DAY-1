@@ -168,7 +168,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   tzinfo-data
-  will_paginate (~> 3.3.0)
+  will_paginate
 
 RUBY VERSION
    ruby 2.7.6p219

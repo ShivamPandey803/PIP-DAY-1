@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     def login
       user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
-        render json: { user_id: user.id }
+        render json: { user_id: user.id}
       else
         render json: { error: 'Invalid email or password' }, status: :unauthorized
       end

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/ledgers', to: 'ledgers#index'
   get '/ledgers/:user_id', to: 'ledgers#index'
   patch '/ledgers/:ledger_id/comments/:id', to: 'comments#update'
+  get '/users/:user_id/ledgers/summarize', to: 'ledgers#summarize'
 end
